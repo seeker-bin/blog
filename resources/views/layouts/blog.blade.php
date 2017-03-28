@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8,ie=7">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>YzmCMS官方博客_袁志蒙博客</title>
-    <meta name="keywords" content="YzmCMS官方博客,yzmcms博客,袁志蒙,袁志蒙博客,袁志蒙个人博客,yzmcms模板" />
-    <meta name="description" content="YzmCMS官方博客，是YzmCMS内容管理系统的官方博客，收集并分享WEB知识，记录生活的点点滴滴。" />
+    <title>追逐梦想的懒汉</title>
+    <meta name="keywords" content="PHP,Python,Robin,追逐梦想的懒汉,懒人的博客" />
+    <meta name="description" content="PHP/Python工程狮，收集并分享WEB知识，记录生活的点点滴滴。" />
     <link rel="stylesheet" id="open_social_css-css" href="{{asset('css/blog-os.css')}}" type="text/css" media="all" />
     <link rel="stylesheet" href="{{asset('css/blog-style.css')}}" media="all">
   <link rel="stylesheet" href="{{asset('css/blog-swiper.min.css')}}" media="all">
@@ -46,7 +46,7 @@
 </script> 
 <header class="header" style="height: 52px;">
   <div class="navbar">
-    <h1 class="logo"><a href="http://blog.yzmcms.com/" title="YzmCMS官方博客_袁志蒙博客" alt="YzmCMS官方博客_袁志蒙博客">YzmCMS官方博客_袁志蒙博客</a></h1>
+    <h1 class="logo"><a href="http://blog.yzmcms.com/" title="追逐梦想的懒汉" alt="追逐梦想的懒汉">追逐梦想的懒汉</a></h1>
   <ul class="nav">
     <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home"><a href="http://blog.yzmcms.com/">首页</a></li>
     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
