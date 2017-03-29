@@ -11,8 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index');
+Route::get('article', 'ArticleController@index');
+Route::get('a/{i}', 'ArticleController@detail');
+Route::any('admin/login', 'Admin\AdminController@login');
+Route::any('code', 'Admin\AdminController@code');
 
-Route::get('/article', 'ArticleController@index');
+Route::group(['middleware'=>'admin.login', 'namespace'=>'Admin', 'prefix'=>'admin'], function(){
+	Route::get('index', 'AdminController@index');
+	Route::get('info', 'AdminController@info');
+
+
+	Route::resource('admin/article', 'ArticleController@index');
+});
