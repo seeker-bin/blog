@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CodeController extends Controller{
-
 	//资源
 	private $img;
 	//画布宽度
@@ -34,7 +33,6 @@ class CodeController extends Controller{
 	//创建验证码
 	public function make()
 	{
-		session(['bbbb' => 'bbbbb']);
 		if(empty($this->font))
 		{
 			$this->font = __DIR__.'/consola.ttf';
@@ -108,6 +106,7 @@ class CodeController extends Controller{
 		}
 		$this->code = strtoupper($code);
 		session(['code' => $this->code]);
+		\Session::save();
 	}
 
 	//建画布

@@ -177,6 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        \JellyBool\Translug\TranslugServiceProvider::class,
+
+
     ],
 
     /*
@@ -226,6 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Translug' => \JellyBool\Translug\TranslugFacade::class,
     ],
 
 ];

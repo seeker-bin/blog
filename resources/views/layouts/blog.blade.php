@@ -7,7 +7,7 @@
     <title>追逐梦想的懒汉</title>
     <meta name="keywords" content="PHP,Python,Robin,追逐梦想的懒汉,懒人的博客" />
     <meta name="description" content="PHP/Python工程狮，收集并分享WEB知识，记录生活的点点滴滴。" />
-    <link rel="stylesheet" id="open_social_css-css" href="{{asset('css/blog-os.css')}}" type="text/css" media="all" />
+    <link rel="stylesheet" id="open_social_css-css" href="{{asset('home/css/blog-os.css')}}" type="text/css" media="all" />
     <link rel="stylesheet" href="{{asset('home/css/blog-style.css')}}" media="all">
     <link rel="stylesheet" href="{{asset('home/css/blog-swiper.min.css')}}" media="all">
     <link href="{{asset('home/css/blog-font-awesome.min.css')}}" rel="stylesheet" media="screen">

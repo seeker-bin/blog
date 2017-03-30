@@ -44,7 +44,7 @@
                 <label>北京时间</label><span><?php echo date('Y年m月d日 H时i分s秒');?></span>
             </li>
             <li>
-                <label>服务器域名/IP</label><span>{{$_SERVER['SERVER_NAME']}} [ {{$_SERVER['SERVER_ADDR']}} ]</span>
+                <label>服务器域名/IP</label><span>{{$_SERVER['SERVER_NAME'] && $_SERVER['SERVER_NAME'] != '_' ? $_SERVER['SERVER_NAME'] : 'binblogs.cn'}} [ {{$_SERVER['SERVER_ADDR']}} ]</span>
             </li>
             <li>
                 <label>Host</label><span>{{$_SERVER['SERVER_ADDR']}}</span>
