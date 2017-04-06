@@ -63,6 +63,12 @@
                 </td>
             </tr>
             <tr>
+                <th>URL：</th>
+                <td>
+                    <input type="text" class="lg" name="cate_url" value="{{$info->cate_url}}">
+                </td>
+            </tr>
+            <tr>
                 <th>关键词：</th>
                 <td>
                     <textarea name="cate_keywords">{{$info->cate_keywords}}</textarea>

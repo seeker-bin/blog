@@ -30,7 +30,8 @@
                         <th class="tc" width="5%">排序</th>
                         <th class="tc" width="5%">ID</th>
                         <th>分类名称</th>
-                        <th>分类标题</th>
+                        <th class="tc">分类标题</th>
+                        <th class="tc">URL</th>
                         <th class="tc">点击次数</th>
                         <th class="tc">操作</th>
                     </tr>
@@ -40,10 +41,11 @@
                                 <input type="text" name="ord[]" value="{{$v->cate_order}}" onchange="editOrder(this, {{$v->cate_id}})">
                             </td>
                             <td class="tc">{{$v->cate_id}}</td>
-                            <td>
+                            <td class="tc">
                                 <a href="#">{{$v->_cate_name}}</a>
                             </td>
-                            <td>{{$v->cate_title}}</td>
+                            <td class="tc">{{$v->cate_title}}</td>
+                            <td class="tc">{{$v->cate_url}}</td>
                             <td class="tc">{{$v->cate_view}}</td>
                             <td class="tc">
                                 <a style="float: none;" href="{{url('admin/category/'.$v->cate_id.'/edit')}}">修改</a>

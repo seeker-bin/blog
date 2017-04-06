@@ -104,7 +104,7 @@
                     layer.msg(data.msg, {icon:6});
                     setTimeout(function () {
                         window.location.reload();
-                    }, 3000);
+                    }, 2500);
                 }else{
                     layer.msg(data.msg, {icon:5});
                 }

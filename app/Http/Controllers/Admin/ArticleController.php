@@ -82,7 +82,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $info = Article::find($id);
+        $category = (new Category())->tree();
+        return view('admin.article.edit', compact('info', 'category'));
     }
 
     /**
@@ -94,7 +96,13 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->except(['_token', '_method']);
+        $input['slug'] = translug($input['title']);
+        if(Article::where('aid', $id)->update($input)){
+            return redirect('admin/article');
+        }else{
+            return back()->with('errors', '文章更新失败，请稍后重试!');
+        }
     }
 
     /**
@@ -105,6 +113,17 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Article::where('aid', $id)->delete()){
+            $data = [
+                'status' => 1,
+                'msg'    => '文章删除成功！',
+            ];
+        }else{
+            $data = [
+                'status' => 0,
+                'msg'    => '文章删除失败！',
+            ];
+        }
+        return $data;
     }
 }

@@ -82,10 +82,10 @@
                                     '_token'     : "<?php echo e(csrf_token()); ?>"
                                 },
                                 'swf'      : "<?php echo e(asset('org/uploadify/uploadify.swf')); ?>",
-                                'uploader' : "<?php echo e(url('admin/upload')); ?>",
+                                'uploader' : "<?php echo e(url('upload')); ?>",
                                 'onUploadSuccess': function(file, data, response){
                                     $('input[name=thumb]').val(data);
-                                    $('#thumb_img').attr('src', '/'+data);
+                                    $('#thumb_img').attr('src', data);
                                 }
                             });
                         });
@@ -108,6 +108,13 @@
                 <th>描述：</th>
                 <td>
                     <textarea name="description"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>是否推荐：</th>
+                <td>
+                    是<input type="radio" name="is_top" value="1">
+                    否<input type="radio" name="is_top" value="0" checked>
                 </td>
             </tr>
             <tr>
