@@ -64,7 +64,7 @@
 							<p>
 								<input type="submit" class="sub_btn" name="dosubmit" value="提交" style="width:100px"><span class="emotion">表情</span>
 								<span class="yzm">
-								<img src="{{url('code')}}" onclick="this.src='{{url('code')}}?'+Math.random()" class="codeimg" title="看不清，换一张"><input type="text" name="code" required="required"></span></p>
+								<img src="{{url('code/ccode')}}" onclick="this.src='{{url('code/ccode')}}?'+Math.random()" class="codeimg" title="看不清，换一张"><input type="text" name="code" required="required"></span></p>
 						   </form>
 						</div>
 						</div>
@@ -95,7 +95,7 @@
 															<p>
 																<input type="submit" class="sub_btn static" name="dosubmit" value="提交" style="width:100px">
 																<span class="yzm yzm2">
-																<img src="{{url('code')}}" onclick="this.src='{{url('code')}}?'+Math.random()" class="codeimg" title="看不清，换一张"><input type="text" name="code" required="required"></span>
+																<img src="{{url('code/ccode')}}" onclick="this.src='{{url('code/ccode')}}?'+Math.random()" class="codeimg" title="看不清，换一张"><input type="text" name="code" required="required"></span>
 															</p>
 								     					</form>
 								     				</div>
@@ -120,7 +120,7 @@
 														<p>
 															<input type="submit" class="sub_btn static" name="dosubmit" value="提交" style="width:100px">
 															<span class="yzm yzm2">
-															<img src="{{url('code')}}" onclick="this.src='{{url('code')}}?'+Math.random()" class="codeimg" title="看不清，换一张"><input type="text" name="code" required="required"></span></p>
+															<img src="{{url('code/ccode')}}" onclick="this.src='{{url('code/ccode')}}?'+Math.random()" class="codeimg" title="看不清，换一张"><input type="text" name="code" required="required"></span></p>
 													   </form>
 													</div>
 												</div>

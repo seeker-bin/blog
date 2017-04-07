@@ -12,14 +12,17 @@
 */
 
 Route::any('login', 'Admin\AdminController@login');
-Route::any('code', 'Admin\AdminController@code');
+Route::any('code/{key}', 'Admin\AdminController@code');
 Route::any('upload', 'Admin\UploadController@doUpload');
 
 Route::group(['namespace'=>'Home'], function(){
 	Route::get('/', 'IndexController@index');
-	Route::get('article', 'ArticleController@index');
+	Route::get('/{cate_url}', 'ArticleController@cate');
 	Route::get('a/{i}', 'ArticleController@detail');
 	Route::post('comment', 'ArticleController@addComment');
+	Route::get('about/me', 'AboutController@me');
+	Route::get('message/me', 'AboutController@message');
+	Route::post('message/send', 'AboutController@sendMessage');
 });
 
 Route::group(['middleware'=>'admin.login', 'namespace'=>'Admin', 'prefix'=>'admin'], function(){

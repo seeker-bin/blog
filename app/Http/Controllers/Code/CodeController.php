@@ -28,6 +28,7 @@ class CodeController extends Controller{
 	private $fontColor='';
 
 	public function __construct() {
+		$this->session_key = '';
 	}
 
 	//创建验证码
@@ -94,8 +95,8 @@ class CodeController extends Controller{
 	}
 
 	//返回验证码
-	public function get() {
-		return session('code');
+	public function get($key) {
+		return session($key);
 	}
 
 	//生成验证码
@@ -105,7 +106,7 @@ class CodeController extends Controller{
 			$code .= $this->codeStr [mt_rand(0, strlen($this->codeStr) - 1)];
 		}
 		$this->code = strtoupper($code);
-		session(['code' => $this->code]);
+		session([$this->session_key => $this->code]);
 		\Session::save();
 	}
 

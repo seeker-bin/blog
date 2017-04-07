@@ -53,9 +53,20 @@
         <h1 class="logo"><a href="http://binblogs.cn/" title="{{Config::get('web.web_title')}}" alt="{{Config::get('web.web_title')}}">{{Config::get('web.web_title')}}</a></h1>
         <ul class="nav">
         @foreach($navs as $v)
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="uri{{$v->nav_url}}">
-                <a href="{{url($v->nav_url)}}" title="{{$v->nav_alias}}">{{$v->nav_name}}</a>
-            </li>{{-- current-menu-item  --}}
+            @if($v->haschild != 1)
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="uri{{$v->nav_url}}">
+                    <a href="{{url($v->nav_url)}}" title="{{$v->nav_alias}}">{{$v->nav_name}}</a>
+                </li>
+            @else
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                    <a href="{{url($v->nav_url)}}">{{$v->nav_name}}</a>
+                    <ul class="sub-menu">
+                        @foreach($v->child as $child)
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="{{url($child->cate_url)}}">{{$child->cate_name}}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+            @endif
         @endforeach
         </ul>
         <div class="menu pull-right">
@@ -83,8 +94,8 @@
 </footer>
 <div id="button">
     <a href="javascript:;" rel="nofollow" class="totop" title="返回顶部"></a>
-    <a href="http://binblogs.cn/" target="_blank" class="guanwang" title="返回官网"></a>
-    <a href="http://blog.yzmcms.com/plus/guestbook.php"  target="_blank" class="lianxi" title="留言联系"></a>
+    {{-- <a href="http://binblogs.cn/" target="_blank" class="guanwang" title="返回官网"></a> --}}
+    <a href="{{url('message/me')}}"  target="_blank" class="lianxi" title="留言联系"></a>
 </div>
 <script type="text/javascript">
 var url = location.href;

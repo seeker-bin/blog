@@ -28,7 +28,7 @@
 					<li>
 						<input type="text" class="code" name="code"/>
 						<span><i class="fa fa-check-square-o"></i></span>
-						<img src="<?php echo e(url('code')); ?>" alt="" onclick="this.src='<?php echo e(url('code')); ?>?'+Math.random()">
+						<img src="<?php echo e(url('code/lcode')); ?>" alt="" onclick="this.src='<?php echo e(url('code')); ?>?'+Math.random()">
 					</li>
 					<li>
 						<input type="submit" value="立即登陆"/>

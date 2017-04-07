@@ -53,9 +53,20 @@
         <h1 class="logo"><a href="http://binblogs.cn/" title="<?php echo e(Config::get('web.web_title')); ?>" alt="<?php echo e(Config::get('web.web_title')); ?>"><?php echo e(Config::get('web.web_title')); ?></a></h1>
         <ul class="nav">
         <?php $__currentLoopData = $navs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="uri<?php echo e($v->nav_url); ?>">
-                <a href="<?php echo e(url($v->nav_url)); ?>" title="<?php echo e($v->nav_alias); ?>"><?php echo e($v->nav_name); ?></a>
-            </li>
+            <?php if($v->haschild != 1): ?>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="uri<?php echo e($v->nav_url); ?>">
+                    <a href="<?php echo e(url($v->nav_url)); ?>" title="<?php echo e($v->nav_alias); ?>"><?php echo e($v->nav_name); ?></a>
+                </li>
+            <?php else: ?>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                    <a href="<?php echo e(url($v->nav_url)); ?>"><?php echo e($v->nav_name); ?></a>
+                    <ul class="sub-menu">
+                        <?php $__currentLoopData = $v->child; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $child): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="<?php echo e(url($child->cate_url)); ?>"><?php echo e($child->cate_name); ?></a></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </ul>
+                </li>
+            <?php endif; ?>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
         <div class="menu pull-right">
@@ -83,8 +94,8 @@
 </footer>
 <div id="button">
     <a href="javascript:;" rel="nofollow" class="totop" title="返回顶部"></a>
-    <a href="http://binblogs.cn/" target="_blank" class="guanwang" title="返回官网"></a>
-    <a href="http://blog.yzmcms.com/plus/guestbook.php"  target="_blank" class="lianxi" title="留言联系"></a>
+    
+    <a href="<?php echo e(url('message/me')); ?>"  target="_blank" class="lianxi" title="留言联系"></a>
 </div>
 <script type="text/javascript">
 var url = location.href;

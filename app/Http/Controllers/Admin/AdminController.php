@@ -23,7 +23,7 @@ class AdminController extends Controller{
     public function login(Request $request){
     	if($input = $request->all()){
     		$code = new CodeController();
-    		$_code = $code->get();
+    		$_code = $code->get('lcode');
     		if(strtoupper($input['code']) == $_code){
     			$user = User::first();
     			if($user->username != $input['username'] || Crypt::decrypt($user->password) != $input['password']){
@@ -41,8 +41,9 @@ class AdminController extends Controller{
     }
 
 
-    public function code(){
+    public function code($key){
     	$code = new CodeController();
+        $code->session_key = $key;
     	$code->make();
     }
 }

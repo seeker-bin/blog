@@ -54,12 +54,6 @@
                 </td>
             </tr>
             <tr>
-                <th><i class="require">*</i>分类id：</th>
-                <td>
-                    <input type="text" name="nav_cate" value="<?php echo e($info->nav_cate); ?>">
-                </td>
-            </tr>
-            <tr>
                 <th>排序：</th>
                 <td>
                     <input type="text" class="sm" name="nav_order" value="<?php echo e($info->nav_order); ?>">

@@ -10,8 +10,15 @@ use App\Http\Models\Comment;
 
 class ArticleController extends CommonController{
     
-    public function index(){
-    	return view('blog.article');
+    public function cate($cate_url){
+    	$cate = Category::select('cate_id', 'cate_name', 'cate_pid')->where('cate_url', $cate_url)->first();
+    	if($cate->cate_pid != 0){
+    		$articles = Article::where('cate_id', $cate->cate_id)->paginate(10);
+    	}else{
+    		$articles = Article::join('category', 'article.cate_id', '=', 'category.cate_id')->where('category.cate_id', $cate->cate_id)->orWhere('category.cate_pid', $cate->cate_id)->paginate(10);
+    	}
+    	$hot = Article::where('cate_id', $cate->cate_id)->orderBy('view', 'desc')->limit(6)->get();
+    	return view('blog.article', compact('cate', 'articles', 'hot'));
     }
 
    	public function detail($aid){
@@ -27,8 +34,7 @@ class ArticleController extends CommonController{
 
 
    	public function addComment(Request $request){
-   		dd($request->all());
-    	if(strtoupper($request->get('code')) == session('code')){
+    	if(strtoupper($request->get('code')) == session('ccode')){
    			$input = $request->except('_token', 'code', 'dosubmit');
    			$input['add_time'] = time();
     		if(Comment::create($input)){
